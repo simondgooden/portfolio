@@ -1,13 +1,19 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-
-
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
     generateStars();
+
+    const handleResize = () => {
+        generateStars();
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener("resize", handleResize)
   }, []);
 
   const generateStars = () => {
