@@ -9,7 +9,9 @@ export const Home = () => {
 
             <StarBackground />
 
-            <Navbar />         
+            <Navbar />   
+            
+                  
         </div>
     );
 };
