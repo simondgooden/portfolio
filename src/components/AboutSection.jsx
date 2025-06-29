@@ -14,7 +14,7 @@ export const AboutSection = () => {
     {
       icon: <FileTerminal className="h-6 w-6 text-primary" />,
       title: "Machine Learning",
-      description: "Building efficient, secure backend APIs and databases.",
+      description: "Building, training, and incoporating models into software.",
     },
     {
       icon: <Clapperboard className="h-6 w-6 text-primary" />,
@@ -51,11 +51,13 @@ export const AboutSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="button text-background">
-                Let’s Talk
+                Contact Me
               </a>
 
               <a
-                href=""
+                href="https://drive.google.com/file/d/133sPBOFN3hXQMw0ZCKtBtkKqzni-5_X7/view?usp=share_link"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-background transition-colors duration-300"
               >
                 Resume

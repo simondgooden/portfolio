@@ -5,9 +5,13 @@ import { X, Menu } from "lucide-react";
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
+  {
+    name: "Resume",
+    href: "https://drive.google.com/file/d/133sPBOFN3hXQMw0ZCKtBtkKqzni-5_X7/view?usp=share_link",
+    external: true,
+  },
 ];
 
 export const Navbar = () => {
@@ -16,12 +20,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10); // fixed: window.screenY -> window.scrollY
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <nav
       className={cn(
@@ -35,16 +40,18 @@ export const Navbar = () => {
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-foreground"> Simon Gooden </span>{" "}
-            Portfolio
+            <span className="text-foreground"> Simon Gooden </span> Portfolio
           </span>
         </a>
-        {/*Desktop*/}
+
+        {/* Desktop */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
@@ -52,17 +59,16 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/*Mobile*/}
-
+        {/* Mobile Toggle Button */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {" "}
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
+        {/* Mobile Menu */}
         <div
           className={cn(
             "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
@@ -77,6 +83,8 @@ export const Navbar = () => {
               <a
                 key={key}
                 href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
