@@ -55,7 +55,7 @@
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
 
-    --card: 222 47% 8%;
+    --card: 25 100% 94%;
 
     --primary: 25 100% 47%;
     --primary-foreground: 210 40% 98%;
@@ -128,7 +128,7 @@
 
 @utility button {
   @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
-        transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+        transition-all duration-300 hover:shadow-[0_0_10px_rgba(255,172,56)]
         hover:scale-105 active:scale-95;
 }
 

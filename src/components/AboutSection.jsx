@@ -1,4 +1,4 @@
-import { Clapperboard, Code, FileTerminal } from "lucide-react";
+import { Clapperboard, Code, FileTerminal, Brain, BrainCircuit } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 export const AboutSection = () => {
@@ -12,7 +12,7 @@ export const AboutSection = () => {
         "Creating scalable and responsive application using modern frameworks.",
     },
     {
-      icon: <FileTerminal className="h-6 w-6 text-primary" />,
+      icon: <BrainCircuit className="h-6 w-6 text-primary" />,
       title: "Machine Learning",
       description: "Building, training, and incoporating models into software.",
     },
@@ -70,8 +70,7 @@ export const AboutSection = () => {
             {cards.map((card, idx) => (
               <div
                 key={idx}
-                className={`gradient-border p-6 card-hover ${
-                  isDarkMode ? "" : "bg-background text-background"
+                className={`gradient-border p-6 card-hover bg-background text-background"
                 }`}
               >
                 <div className="flex items-start gap-4">
