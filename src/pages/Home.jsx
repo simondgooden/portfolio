@@ -3,6 +3,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
+import { ProjectSection } from "@/components/ProjectSection";
 
 export const Home = () => {
   return (
@@ -16,6 +17,7 @@ export const Home = () => {
       <main>
         <HeroSection />
         <AboutSection />
+        <ProjectSection />
       </main>
     </div>
   );
