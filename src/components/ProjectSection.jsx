@@ -14,7 +14,8 @@ const projects = [
   {
     id: 2,
     title: "Skinscreen",
-    description: "Won Best Health Hack at HackDavis 2024 for developing a mobile skin cancer screening prototype. Built an app that enables users to scan skin images and leverage a large AI model to assist with early detection.",
+    description:
+      "Won Best Health Hack at HackDavis 2024 for developing a mobile skin cancer screening prototype. Built an app that enables users to scan skin images and leverage a large AI model to assist with early detection.",
     image: "/projects/bn.jpg",
     tags: ["Flutter", "Firebase", "PyTorch", "iOS Development"],
     overviewUrl: "https://devpost.com/software/skinscreen",
@@ -23,7 +24,8 @@ const projects = [
   {
     id: 3,
     title: "Brand Networks Dashboard",
-    description: "Created a Fullstack Web Dashboard for Digital Advertisement Optimization",
+    description:
+      "Created a Fullstack Web Dashboard for Digital Advertisement Optimization",
     image: "/projects/bn.jpg",
     tags: [
       "Next.js",
@@ -39,7 +41,8 @@ const projects = [
   {
     id: 4,
     title: "Solidigm",
-    description: "Developed an applied machine learning and retrieval-augmented generation (RAG) pipeline integrated into companies existing ecosystem.",
+    description:
+      "Developed an applied machine learning and retrieval-augmented generation (RAG) pipeline integrated into companies existing ecosystem.",
     image: "/projects/bn.jpg",
     tags: ["TODO:"],
     overviewUrl: "https://codelabdavis.medium.com/solidigm-ai-25f524fdce2a",
@@ -49,8 +52,8 @@ const projects = [
 
 export const ProjectSection = () => {
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
+    <section id="projects" className="py-4 px-4 relative scroll-mt-20">
+      <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl md: text-4xl font-bold mb-4 text-center">
           Featured <span className="text-primary"> Projects </span>
         </h2>
@@ -59,53 +62,85 @@ export const ProjectSection = () => {
           and everything in between!
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((projects, key) => (
+        <div className="space-y-24">
+          {projects.map((project, index) => (
             <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              key={project.id}
+              className={`flex flex-col lg:flex-row items-center gap-16 ${
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
             >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={projects.image}
-                  alt={projects.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+              {/* Image Section */}
+              <div className="w-full lg:w-1/3">
+                <div
+                  className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer"
+                  onClick={() => {
+                    window.open(project.overviewUrl, "_blank");
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      window.open(project.overviewUrl, "_blank");
+                    }
+                  }}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-black/50 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                      Click to view project
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {projects.tags.map((tags) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
-                      {tags}
+              {/* Content Section */}
+              <div className="w-full lg:w-2/3 space-y-6">
+                <h3 className="text-2xl font-bold text-foreground">
+                  {project.title}
+                </h3>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.description}
+                </p>
+
+                <div className="flex space-x-4">
+                  <a
+                    href={project.overviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <ExternalLink size={20} />
+                    <span className="text-sm font-medium">View Project</span>
+                  </a>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-foreground/80 hover:text-primary transition-colors duration-300"
+                    >
+                      <Github size={20} />
+                      <span className="text-sm font-medium">View Code</span>
+                    </a>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-3 py-1 text-sm font-medium border rounded-full bg-secondary text-secondary-foreground"
+                    >
+                      {tag}
                     </span>
                   ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1">
-                  {" "}
-                  {projects.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 px-2">
-                  {projects.description}
-                </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={projects.overviewUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink />
-                    </a>
-                    <a
-                      href={projects.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github />
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>

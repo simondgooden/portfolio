@@ -21,7 +21,7 @@ export const AboutSection = () => {
       title: "Video Editing",
       description:
         "Crafting compelling visuals and stories through modern editing tools.",
-    },
+    }
   ];
 
   return (
