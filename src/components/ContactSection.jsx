@@ -1,8 +1,8 @@
-import { Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 
 export const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+    <section id="contact" className="py-10 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Get In <span className="text-primary"> Touch</span>
@@ -46,11 +46,21 @@ export const ContactSection = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Socials Section */}
-            
-            <div></div>
           </div>
+        </div>
+      </div>
+      
+      {/* Socials Section */}
+
+      <div className="pt-8">
+        <h4 className="font-medium mb-4"> Connect With me</h4>
+        <div className="flex space-x-4 justify-center">
+          <a href="https://www.linkedin.com/in/simon-gooden/" target="_blank">
+            <Linkedin />
+          </a>
+          <a href="https://github.com/simondgooden" target="_blank">
+            <Github />
+          </a>
         </div>
       </div>
     </section>
