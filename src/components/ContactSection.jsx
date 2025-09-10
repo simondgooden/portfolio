@@ -35,6 +35,7 @@ export const ContactSection = () => {
                 </div>
               </div>
             </div>
+
             <div className="space-y-6 justify-center">
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
@@ -47,11 +48,72 @@ export const ContactSection = () => {
               </div>
             </div>
           </div>
+
+          {/* Contact Form */}
+
+          <div className="bg-card p-8 rounded-lg shadow-xs">
+            <h3 className="text-2xl font-semibold mb-6"> Send Message</h3>
+
+            <form className="space-y-6">
+              {/* Name */}
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
+                  {" "}
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  placeholder="Enter Here..."
+                />
+              </div>
+              {/* Email */}
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
+                  {" "}
+                Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-background"
+                  placeholder="Enter Here..."
+                />
+              </div>
+              {/* Message */}
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
+                  {" "}
+                Message
+                </label>
+                <input
+                  id="message"
+                  name="message"
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
+                  placeholder="Enter Here..."
+                />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      
-      {/* Socials Section */}
 
+      {/* Socials Section */}
       <div className="pt-8">
         <h4 className="font-medium mb-4"> Connect With me</h4>
         <div className="flex space-x-4 justify-center">
