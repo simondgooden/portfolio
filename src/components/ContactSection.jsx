@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
@@ -141,19 +141,6 @@ export const ContactSection = () => {
               </button>
             </form>
           </div>
-        </div>
-      </div>
-
-      {/* Socials Section */}
-      <div className="pt-8">
-        <h4 className="font-medium mb-4"> Connect With me</h4>
-        <div className="flex space-x-4 justify-center">
-          <a href="https://www.linkedin.com/in/simon-gooden/" target="_blank">
-            <Linkedin />
-          </a>
-          <a href="https://github.com/simondgooden" target="_blank">
-            <Github />
-          </a>
         </div>
       </div>
     </section>
