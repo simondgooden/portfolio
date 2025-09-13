@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -16,9 +17,8 @@ export const ContactSection = () => {
         title: "Message Sent!",
         description: "Thank you for the message, I will get back to you soon.",
       });
+      setIsSubmitting(false);
     }, 1500);
-
-    setIsSubmitting(false);
   };
   return (
     <section id="contact" className="py-10 px-4 relative bg-secondary/30">
@@ -70,13 +70,10 @@ export const ContactSection = () => {
 
           {/* Contact Form */}
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send Message</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Name */}
               <div>
                 <label
@@ -122,10 +119,11 @@ export const ContactSection = () => {
                   {" "}
                   Message
                 </label>
-                <input
+                <textarea
                   id="message"
                   name="message"
                   required
+                  rows={4}
                   className="w-full px-4 py-3 rounded-md border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Enter Here..."
                 />
